@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// SEO: Schema estructurado para que Google entienda las entidades
+const groupsSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "World Cup 2026 Group Stage Draw",
+  "description": "Complete breakdown of the 12 groups for the expanded 48-team FIFA World Cup in North America.",
+  "startDate": "2026-06-11"
+};
+
+// VENTAJA TÉCNICA: Simulamos la base de datos de los 12 grupos. 
+// Cuando se haga el sorteo oficial, solo actualizás este array o lo conectás a tu API.
+const fetchGroups = async () => {
+  return [
+    { name: "Group A", teams: ["Mexico", "A2", "A3", "A4"], venueRegion: "West / Central" },
+    { name: "Group B", teams: ["Canada", "B2", "B3", "B4"], venueRegion: "West" },
+    { name: "Group C", teams: ["USA", "C2", "C3", "C4"], venueRegion: "West" },
+    { name: "Group D", teams: ["Argentina", "D2", "D3", "D4"], venueRegion: "Central / East" },
+    { name: "Group E", teams: ["France", "E2", "E3", "E4"], venueRegion: "East" },
+    { name: "Group F", teams: ["England", "F2", "F3", "F4"], venueRegion: "Central" },
+    { name: "Group G", teams: ["Spain", "G2", "G3", "G4"], venueRegion: "West" },
+    { name: "Group H", teams: ["Brazil", "H2", "H3", "H4"], venueRegion: "East" },
+    { name: "Group I", teams: ["Portugal", "I2", "I3", "I4"], venueRegion: "Central" },
+    { name: "Group J", teams: ["Germany", "J2", "J3", "J4"], venueRegion: "West" },
+    { name: "Group K", teams: ["Italy", "K2", "K3", "K4"], venueRegion: "East" },
+    { name: "Group L", teams: ["Netherlands", "L2", "L3", "L4"], venueRegion: "Central" }
+  ];
+};
+
+const groups = await fetchGroups();
+---
+
+<Layout 
+  title="FIFA World Cup 2026 Groups: The 48-Team Draw & Seedings" 
+  description="Explore the new 12-group format. See where the seeded nations are placed and how the 48-team World Cup 2026 groups are structured."
+  schema={groupsSchema}
+>
+  <h1 class="text-4xl md:text-5xl font-black mb-6 text-blue-900 tracking-tight">The 12 Groups: A New Era of Chaos</h1>
+  
+  <article class="prose lg:prose-lg max-w-none mb-12 text-gray-700">
+    <p>Let’s clear up the confusion right now. FIFA originally tossed around the idea of 16 groups of three teams. Thankfully, they scrapped it. The official <strong>FIFA World Cup 2026 groups</strong> will consist of 12 groups of four teams (Groups A through L). The traditional math is back, but the stakes are completely different.</p>
+    
+    <p>With 48 nations in the mix, just being a top-two team isn't the only way out. The eight best third-placed teams will also punch their tickets to the knockout rounds. This changes the entire dynamic of the final matchday in the group stage. A late goal in a seemingly boring Group J match could suddenly eliminate a massive team in Group C.</p>
+    
+    <p>Below is the live structure of the draw. The host nations (USA, Mexico, Canada) automatically headline their respective groups, while top-tier seeds like defending champion Argentina fill the rest of the Pot 1 slots.</p>
+  </article>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    {groups.map((group) => (
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
+        
+        <div class="bg-blue-900 text-white px-6 py-4 flex justify-between items-center">
+          <h2 class="text-xl font-bold m-0">{group.name}</h2>
+          <span class="text-xs font-semibold bg-blue-800 px-2 py-1 rounded text-blue-200" title="Expected playing region">
+            {group.venueRegion}
+          </span>
+        </div>
+        
+        <ul class="divide-y divide-gray-100">
+          {group.teams.map((team, index) => (
+            <li class="px-6 py-4 flex items-center gap-4 hover:bg-gray-50 transition-colors">
+              <span class="text-gray-400 font-bold text-sm w-4">{index + 1}</span>
+              <span class={`font-medium ${index === 0 ? 'text-blue-900 font-bold' : 'text-gray-600'}`}>
+                {team}
+              </span>
+              {index === 0 && (
+                <span class="ml-auto text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">Seed</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="bg-gray-900 text-white rounded-xl p-8 shadow-xl">
+    <h3 class="text-2xl font-bold mb-3">How the Draw Works</h3>
+    <p class="text-gray-300 mb-0">
+      Teams are divided into four pots based on the FIFA Men's World Ranking. The exception is the host nations, who are automatically placed in Pot 1 and assigned to specific groups to ensure they play on home soil during the opening stage.
+    </p>
+  </div>
+</Layout>

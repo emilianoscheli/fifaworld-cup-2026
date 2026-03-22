@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const groupsSchema = {
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "World Cup 2026 Group Stage Draw",
+  "description": "Analysis of the 12 groups for the expanded 48-team FIFA World Cup.",
+  "startDate": "2026-06-11"
+};
+---
+
+<Layout 
+  title="FIFA World Cup 2026 Groups: The 48-Team Draw Explained" 
+  description="Forget everything you know about the World Cup. 12 groups. 48 teams. We break down the new group stage format and how teams advance."
+  schema={groupsSchema}
+>
+  <h1 class="text-4xl md:text-5xl font-black mb-6 text-blue-900 tracking-tight">The New 12-Group Era</h1>
+  
+  <article class="prose lg:prose-lg max-w-none mb-10 text-gray-700">
+    <p>Forget the classic 32-team format we grew up with. The FIFA World Cup 2026 groups are entirely different. 48 nations. 12 groups of four. It's a massive shift in how the early stages of the tournament are played.</p>
+    
+    <p>Why does this matter? Because the math changed. Taking the top two from each group wasn't enough to build the next bracket. So, the eight best third-placed teams will now survive the group stage. This single rule change kills the "dead rubber" matches. Going into matchday 3, almost every single team will still have a mathematical shot at the knockouts.</p>
+
+    <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 my-8">
+      <h2 class="text-xl font-bold text-blue-900 mt-0 mb-3">Group Stage Survival Guide</h2>
+      <ul class="space-y-2 m-0 text-blue-800">
+        <li><strong>Winner & Runner-up:</strong> Guaranteed spot in the Round of 32.</li>
+        <li><strong>3rd Place:</strong> You sweat. The top 8 third-place finishers advance based on points and goal difference.</li>
+        <li><strong>4th Place:</strong> Ticket home.</li>
+      </ul>
+    </div>
+  </article>
+</Layout>

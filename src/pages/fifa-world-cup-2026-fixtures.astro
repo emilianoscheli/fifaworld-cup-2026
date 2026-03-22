@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// SEO: Schema de ItemList para indicarle a Google que esto es un catálogo de partidos
+const fixturesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "World Cup FIFA 2026 Schedule Fixtures",
+  "description": "Complete match schedule, group stage fixtures, and knockout stage bracket for the 2026 FIFA World Cup.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "SportsEvent",
+        "name": "Opening Match: Mexico vs A2",
+        "startDate": "2026-06-11",
+        "location": { "@type": "Place", "name": "Estadio Azteca, Mexico City" }
+      }
+    }
+  ]
+};
+
+// VENTAJA TÉCNICA: Un array robusto que mapea el formato real de 48 equipos.
+const fetchFixtures = async () => {
+  return [
+    // --- FASE DE GRUPOS (Aperturas) ---
+    { id: 1, date: "June 11, 2026", phase: "Group A", team1: "Mexico", team2: "A2", venue: "Estadio Azteca, Mexico City", type: "Group Stage" },
+    { id: 2, date: "June 12, 2026", phase: "Group D", team1: "USA", team2: "D2", venue: "SoFi Stadium, Los Angeles", type: "Group Stage" },
+    { id: 3, date: "June 12, 2026", phase: "Group B", team1: "Canada", team2: "B2", venue: "BMO Field, Toronto", type: "Group Stage" },
+    { id: 4, date: "June 13, 2026", phase: "Group C", team1: "C1", team2: "C2", venue: "Hard Rock Stadium, Miami", type: "Group Stage" },
+    
+    // --- DIECISEISAVOS DE FINAL (Round of 32 - Nuevos cruces) ---
+    { id: 73, date: "June 28, 2026", phase: "Round of 32", team1: "Winner Group A", team2: "3rd Place C/D/E/F", venue: "SoFi Stadium, Los Angeles", type: "Knockout" },
+    { id: 74, date: "June 29, 2026", phase: "Round of 32", team1: "Winner Group E", team2: "3rd Place A/B/C/D", venue: "Gillette Stadium, Boston", type: "Knockout" },
+    { id: 75, date: "June 29, 2026", phase: "Round of 32", team1: "Winner Group F", team2: "Runner-up Group C", venue: "Estadio BBVA, Monterrey", type: "Knockout" },
+    
+    // --- OCTAVOS DE FINAL (Round of 16) ---
+    { id: 89, date: "July 4, 2026", phase: "Round of 16", team1: "Winner Match 73", team2: "Winner Match 75", venue: "NRG Stadium, Houston", type: "Knockout" },
+    { id: 90, date: "July 4, 2026", phase: "Round of 16", team1: "Winner Match 74", team2: "Winner Match 76", venue: "Lincoln Financial Field, Philadelphia", type: "Knockout" },
+    
+    // --- CUARTOS DE FINAL ---
+    { id: 97, date: "July 9, 2026", phase: "Quarter-Final", team1: "Winner Match 89", team2: "Winner Match 90", venue: "Gillette Stadium, Boston", type: "Knockout" },
+    { id: 98, date: "July 10, 2026", phase: "Quarter-Final", team1: "Winner Match 91", team2: "Winner Match 92", venue: "SoFi Stadium, Los Angeles", type: "Knockout" },
+    
+    // --- SEMIFINALES ---
+    { id: 101, date: "July 14, 2026", phase: "Semi-Final", team1: "Winner Match 97", team2: "Winner Match 98", venue: "AT&T Stadium, Dallas", type: "Knockout" },
+    { id: 102, date: "July 15, 2026", phase: "Semi-Final", team1: "Winner Match 99", team2: "Winner Match 100", venue: "Mercedes-Benz Stadium, Atlanta", type: "Knockout" },
+    
+    // --- FINAL ---
+    { id: 104, date: "July 19, 2026", phase: "Final", team1: "Winner Match 101", team2: "Winner Match 102", venue: "MetLife Stadium, New York/New Jersey", type: "Championship" },
+  ];
+};
+
+const fixtures = await fetchFixtures();
+---
+
+<Layout 
+  title="World Cup FIFA 2026 Schedule Fixtures & Matchups" 
+  description="Explore the complete world cup fifa 2026 schedule fixtures. Track every matchup from the group stage to the new Round of 32 knockout bracket."
+  schema={fixturesSchema}
+>
+  <h1 class="text-4xl md:text-5xl font-black mb-6 text-blue-900 tracking-tight">World Cup FIFA 2026 Schedule Fixtures</h1>
+  
+  <article class="prose lg:prose-lg max-w-none mb-10 text-gray-700">
+    <p>Understanding the <strong>world cup fifa 2026 schedule fixtures</strong> is more complex than ever before. With the expansion to 48 teams, the tournament introduces a massive 104-match format, changing how the traditional bracket flows.</p>
+    
+    <p>The biggest update to the matchups is the introduction of the <strong>Round of 32</strong>. Now, not only do the top two teams from each of the 12 groups advance, but the eight best third-place teams also join the knockout stage. Below is the comprehensive breakdown of the fixtures, from the opening whistle in Mexico City to the championship clash in New Jersey.</p>
+  </article>
+
+  [Image of FIFA World Cup 2026 48-team knockout bracket format]
+
+  <div class="bg-white shadow-lg rounded-2xl border border-gray-200 overflow-hidden mb-8">
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse whitespace-nowrap">
+        <thead>
+          <tr class="bg-blue-900 text-white uppercase text-xs font-bold tracking-wider">
+            <th class="py-4 px-6">Match Date</th>
+            <th class="py-4 px-6 text-center">Phase</th>
+            <th class="py-4 px-6 text-center">Matchup</th>
+            <th class="py-4 px-6">Host Venue</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-100">
+          {fixtures.map((match) => (
+            <tr class="hover:bg-blue-50 transition-colors group">
+              <td class="py-4 px-6 text-sm font-semibold text-gray-900">
+                {match.date}
+              </td>
+              <td class="py-4 px-6 text-center">
+                <span class={`px-3 py-1 rounded-full text-xs font-bold inline-block
+                  ${match.type === 'Group Stage' ? 'bg-gray-100 text-gray-700' : 
+                    match.type === 'Championship' ? 'bg-yellow-100 text-yellow-800 border border-yellow-300' : 
+                    'bg-blue-100 text-blue-800'}`}>
+                  {match.phase}
+                </span>
+              </td>
+              <td class="py-4 px-6">
+                <div class="flex items-center justify-center gap-3 font-bold text-gray-800 text-sm md:text-base">
+                  <span class="w-24 text-right truncate">{match.team1}</span>
+                  <span class="text-gray-300 font-normal text-xs px-2">VS</span>
+                  <span class="w-24 text-left truncate">{match.team2}</span>
+                </div>
+              </td>
+              <td class="py-4 px-6 text-sm text-gray-600 flex items-center gap-2">
+                <svg class="w-4 h-4 text-gray-400 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                {match.venue}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="bg-gray-50 p-5 text-sm text-gray-500 border-t border-gray-200">
+      <p><strong>Note:</strong> Exact kickoff times and final nation placements for the knockout matchups (TBD vs TBD) will be populated dynamically right after the official FIFA group stage draw.</p>
+    </div>
+  </div>
+</Layout>
