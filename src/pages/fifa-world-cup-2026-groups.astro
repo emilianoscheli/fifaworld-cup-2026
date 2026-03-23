@@ -1,34 +1,69 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// SEO: Schema actualizado para los grupos
 const groupsSchema = {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "World Cup 2026 Group Stage Draw",
-  "description": "Analysis of the 12 groups for the expanded 48-team FIFA World Cup.",
+  "name": "FIFA World Cup 2026 Groups",
+  "description": "Complete breakdown and pairings of the 12 groups for the 2026 World Cup in USA, Mexico, and Canada.",
   "startDate": "2026-06-11"
 };
 ---
 
 <Layout 
-  title="FIFA World Cup 2026 Groups: The 48-Team Draw Explained" 
-  description="Forget everything you know about the World Cup. 12 groups. 48 teams. We break down the new group stage format and how teams advance."
+  title="FIFA World Cup 2026 Groups: Draw, Pairings and Format" 
+  description="All the details about the 2026 World Cup groups. Learn about the new knockout rounds, the 12-group structure, and the road to the final."
   schema={groupsSchema}
 >
-  <h1 class="text-4xl md:text-5xl font-black mb-6 text-blue-900 tracking-tight">The New 12-Group Era</h1>
+  <h1 class="text-4xl md:text-5xl font-black mb-8 text-blue-900 tracking-tight">
+    FIFA World Cup 2026 Groups: Everything You Need to Know
+  </h1>
   
-  <article class="prose lg:prose-lg max-w-none mb-10 text-gray-700">
-    <p>Forget the classic 32-team format we grew up with. The FIFA World Cup 2026 groups are entirely different. 48 nations. 12 groups of four. It's a massive shift in how the early stages of the tournament are played.</p>
-    
-    <p>Why does this matter? Because the math changed. Taking the top two from each group wasn't enough to build the next bracket. So, the eight best third-placed teams will now survive the group stage. This single rule change kills the "dead rubber" matches. Going into matchday 3, almost every single team will still have a mathematical shot at the knockouts.</p>
+  <article class="prose lg:prose-lg max-w-none text-gray-700">
+    <p>
+      The 2026 World Cup, the most significant football tournament globally, will take place in mid-2026. For the first time, the World Cup will be organized in three nations: the United States, Mexico, and Canada. In this article, we offer all the information you need about the next edition of the World Cup. After the draw, the national teams have revealed their future in the upcoming <strong>fifa world cup 2026 groups</strong>; here you can find all the details and pairings.
+    </p>
 
-    <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 my-8">
-      <h2 class="text-xl font-bold text-blue-900 mt-0 mb-3">Group Stage Survival Guide</h2>
-      <ul class="space-y-2 m-0 text-blue-800">
-        <li><strong>Winner & Runner-up:</strong> Guaranteed spot in the Round of 32.</li>
-        <li><strong>3rd Place:</strong> You sweat. The top 8 third-place finishers advance based on points and goal difference.</li>
-        <li><strong>4th Place:</strong> Ticket home.</li>
-      </ul>
-    </div>
+    <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Official Draw and 12-Group Structure</h2>
+    <p>
+      The 2026 World Cup draw has determined the fate of the 42 teams that have confirmed their participation, as well as the six remaining tickets at stake for the playoff, so we already know how the twelve <strong>fifa world cup 2026 groups</strong> have been formed.
+    </p>
+    <p>
+      The top two from each group and the eight best third-place finishers will qualify for the round of 32. This means that those who reach the final on July 19 must play eight matches, one more than in the Qatar 2022 World Cup.
+    </p>
+
+    <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Qualification and New Direct Elimination Rounds</h2>
+    <p>
+      Each of the <strong>fifa world cup 2026 groups</strong> is composed of four teams; the best two from each group will advance to the next phase along with the eight best third-place teams. How many new direct elimination rounds will the 2026 World Cup have?
+    </p>
+
+    <h3 class="text-2xl font-bold text-gray-800 mt-6 mb-3">The Round of 32 Phase</h3>
+    <p>
+      The direct elimination matches will begin in an earlier phase compared to the round of 16. Unlike the 2024-25 Champions League, all qualifiers, whether they are first or second in their respective <strong>fifa world cup 2026 groups</strong>, will have to participate in the round of 32.
+    </p>
+
+    <h3 class="text-2xl font-bold text-gray-800 mt-6 mb-3">Road to the Round of 16</h3>
+    <p>
+      There will be no teams resting until they reach the round of 16, the stage that will follow the round of 32 within the <strong>fifa world cup 2026 groups</strong> progression. This ensures an intense competition for all nations involved in North America.
+    </p>
   </article>
+
+  <div class="mt-12 p-8 bg-blue-50 rounded-2xl border border-blue-100">
+    <h2 class="text-xl font-bold text-blue-900 mb-4 text-center italic">Key Tournament Fact</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div>
+        <p class="text-3xl font-black text-blue-600">12</p>
+        <p class="text-sm font-bold text-gray-600">Total Groups</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-blue-600">48</p>
+        <p class="text-sm font-bold text-gray-600">Total Teams</p>
+      </div>
+      <div>
+        <p class="text-3xl font-black text-blue-600">104</p>
+        <p class="text-sm font-bold text-gray-600">Total Matches</p>
+      </div>
+    </div>
+  </div>
 </Layout>

@@ -1,84 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// SEO: Schema estructurado para que Google entienda las entidades
-const groupsSchema = {
+// SEO: Schema para Tickets
+const ticketsSchema = {
   "@context": "https://schema.org",
-  "@type": "SportsEvent",
-  "name": "World Cup 2026 Group Stage Draw",
-  "description": "Complete breakdown of the 12 groups for the expanded 48-team FIFA World Cup in North America.",
-  "startDate": "2026-06-11"
+  "@type": "Offer",
+  "name": "FIFA World Cup 2026 Tickets",
+  "description": "Official information about ticket costs, sales phases, and hospitality packages for the 2026 World Cup.",
+  "url": "https://fifaworld-cup-2026.org/fifa-world-cup-2026-tickets"
 };
-
-// VENTAJA TÉCNICA: Simulamos la base de datos de los 12 grupos. 
-// Cuando se haga el sorteo oficial, solo actualizás este array o lo conectás a tu API.
-const fetchGroups = async () => {
-  return [
-    { name: "Group A", teams: ["Mexico", "A2", "A3", "A4"], venueRegion: "West / Central" },
-    { name: "Group B", teams: ["Canada", "B2", "B3", "B4"], venueRegion: "West" },
-    { name: "Group C", teams: ["USA", "C2", "C3", "C4"], venueRegion: "West" },
-    { name: "Group D", teams: ["Argentina", "D2", "D3", "D4"], venueRegion: "Central / East" },
-    { name: "Group E", teams: ["France", "E2", "E3", "E4"], venueRegion: "East" },
-    { name: "Group F", teams: ["England", "F2", "F3", "F4"], venueRegion: "Central" },
-    { name: "Group G", teams: ["Spain", "G2", "G3", "G4"], venueRegion: "West" },
-    { name: "Group H", teams: ["Brazil", "H2", "H3", "H4"], venueRegion: "East" },
-    { name: "Group I", teams: ["Portugal", "I2", "I3", "I4"], venueRegion: "Central" },
-    { name: "Group J", teams: ["Germany", "J2", "J3", "J4"], venueRegion: "West" },
-    { name: "Group K", teams: ["Italy", "K2", "K3", "K4"], venueRegion: "East" },
-    { name: "Group L", teams: ["Netherlands", "L2", "L3", "L4"], venueRegion: "Central" }
-  ];
-};
-
-const groups = await fetchGroups();
 ---
 
 <Layout 
-  title="FIFA World Cup 2026 Groups: The 48-Team Draw & Seedings" 
-  description="Explore the new 12-group format. See where the seeded nations are placed and how the 48-team World Cup 2026 groups are structured."
-  schema={groupsSchema}
+  title="FIFA World Cup 2026 Tickets: Prices, Dates & Official Sales" 
+  description="Check the official cost of FIFA World Cup 2026 tickets, sales dates for the general public, and where to buy them safely."
+  schema={ticketsSchema}
 >
-  <h1 class="text-4xl md:text-5xl font-black mb-6 text-blue-900 tracking-tight">The 12 Groups: A New Era of Chaos</h1>
+  <h1 class="text-4xl md:text-5xl font-black mb-8 text-blue-900 tracking-tight">
+    FIFA World Cup 2026 Tickets: Sales, Prices and Locations
+  </h1>
   
-  <article class="prose lg:prose-lg max-w-none mb-12 text-gray-700">
-    <p>Let’s clear up the confusion right now. FIFA originally tossed around the idea of 16 groups of three teams. Thankfully, they scrapped it. The official <strong>FIFA World Cup 2026 groups</strong> will consist of 12 groups of four teams (Groups A through L). The traditional math is back, but the stakes are completely different.</p>
+  <article class="prose lg:prose-lg max-w-none text-gray-700">
+    <p>
+      The 2026 World Cup will take place in Mexico, the United States, and Canada, which has generated great enthusiasm among fans who want to be present at the matches. Below, check the <strong>fifa world cup 2026 tickets</strong> cost, sales dates for the general public, and the place of purchase.
+    </p>
+
+    <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">Official Sales Phases and Schedule</h2>
+    <p>
+      The 2026 World Cup will begin on June 11 at the Estadio Azteca in Mexico City, where the Tri and South Africa will face each other in the opening match, and will conclude on Sunday, July 19, with the grand final at MetLife Stadium. The <strong>fifa world cup 2026 tickets</strong> sale will be carried out in several stages, starting from September 10 and ending on July 19, 2026, the day of the tournament final.
+    </p>
+    <p>
+      Each of these stages could vary in terms of purchase methods, payment options, and types of <strong>fifa world cup 2026 tickets</strong> available. Specific details about each phase will be released in the coming months. Fans who register and create a FIFA ID will receive updated information on the dates and the sales process.
+    </p>
+
+    <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">World Cup Draw and Entry Requirements</h2>
+    <p>
+      On the other hand, the World Cup draw will take place starting at 12:00 PM (local time) on Friday, December 5, at the Kennedy Center in Washington DC, where the groups will be established and the matches scheduled, including venues and times. Additionally, FIFA points out that acquiring <strong>fifa world cup 2026 tickets</strong> does not guarantee entry to the host countries, so it advises consulting the official government pages of Canada, Mexico, and the United States for entry requirements.
+    </p>
+
+    <h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">World Cup 2026: Ticket Resale and Hospitality Packages</h2>
     
-    <p>With 48 nations in the mix, just being a top-two team isn't the only way out. The eight best third-placed teams will also punch their tickets to the knockout rounds. This changes the entire dynamic of the final matchday in the group stage. A late goal in a seemingly boring Group J match could suddenly eliminate a massive team in Group C.</p>
-    
-    <p>Below is the live structure of the draw. The host nations (USA, Mexico, Canada) automatically headline their respective groups, while top-tier seeds like defending champion Argentina fill the rest of the Pot 1 slots.</p>
+    <h3 class="text-2xl font-bold text-gray-800 mt-6 mb-3">Official Resale Platform</h3>
+    <p>
+      Likewise, ticket owners who meet the necessary conditions now have an official resale platform managed by FIFA at FIFA.com/tickets. This initiative seeks to protect fans from invalid or unauthorized resales and is available to followers subject to federal and local regulations; residents in Mexico will have access to the FIFA ticket exchange market for their <strong>fifa world cup 2026 tickets</strong>.
+    </p>
+
+    <h3 class="text-2xl font-bold text-gray-800 mt-6 mb-3">Hospitality and Enhanced Experience</h3>
+    <p>
+      Fans wishing to secure their attendance at specific matches and enjoy an enhanced experience on the day of the event can purchase packages that include <strong>fifa world cup 2026 tickets</strong>, which can be found at FIFA.com/hospitality, through On Location, the official hospitality provider for the FIFA World Cup 2026.
+    </p>
   </article>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-    {groups.map((group) => (
-      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
-        
-        <div class="bg-blue-900 text-white px-6 py-4 flex justify-between items-center">
-          <h2 class="text-xl font-bold m-0">{group.name}</h2>
-          <span class="text-xs font-semibold bg-blue-800 px-2 py-1 rounded text-blue-200" title="Expected playing region">
-            {group.venueRegion}
-          </span>
-        </div>
-        
-        <ul class="divide-y divide-gray-100">
-          {group.teams.map((team, index) => (
-            <li class="px-6 py-4 flex items-center gap-4 hover:bg-gray-50 transition-colors">
-              <span class="text-gray-400 font-bold text-sm w-4">{index + 1}</span>
-              <span class={`font-medium ${index === 0 ? 'text-blue-900 font-bold' : 'text-gray-600'}`}>
-                {team}
-              </span>
-              {index === 0 && (
-                <span class="ml-auto text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">Seed</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    ))}
-  </div>
-
-  <div class="bg-gray-900 text-white rounded-xl p-8 shadow-xl">
-    <h3 class="text-2xl font-bold mb-3">How the Draw Works</h3>
-    <p class="text-gray-300 mb-0">
-      Teams are divided into four pots based on the FIFA Men's World Ranking. The exception is the host nations, who are automatically placed in Pot 1 and assigned to specific groups to ensure they play on home soil during the opening stage.
-    </p>
+  <div class="mt-12 p-8 bg-blue-50 rounded-2xl border border-blue-100 text-center">
+    <p class="text-blue-900 font-bold mb-4">Stay updated on all ticket sales phases</p>
+    <a href="https://www.fifa.com/en/tickets" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-900 text-white font-black px-8 py-4 rounded-xl hover:bg-blue-800 transition-colors">
+      Official FIFA Ticket Portal
+    </a>
   </div>
 </Layout>
