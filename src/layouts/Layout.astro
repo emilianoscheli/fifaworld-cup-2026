@@ -1,10 +1,11 @@
 ---
+// src/layouts/Layout.astro
 import '../styles/global.css';
 
 interface Props {
-	title: string;
-	description: string;
-	schema?: object;
+    title: string;
+    description: string;
+    schema?: object;
 }
 
 const { title, description, schema } = Astro.props;
@@ -12,44 +13,50 @@ const { title, description, schema } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>{title}</title>
-		
-		{schema && (
-			<script type="application/ld+json" set:html={JSON.stringify(schema)} />
-		)}
-	</head>
-	<body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
-		
-		<header class="bg-blue-900 text-white shadow-md">
-			<div class="max-w-4xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-				<a href="/" class="text-2xl font-extrabold tracking-tight hover:text-blue-200 transition-colors whitespace-nowrap">
-					World cup fifa 2026 
-				</a>
-				
-				<nav class="w-full md:w-auto">
-					<ul class="flex flex-wrap justify-center md:justify-end gap-3 sm:gap-6 text-sm font-medium">
-						<li><a href="/fifa-world-cup-2026-tickets" class="hover:text-blue-300 transition-colors">Tickets</a></li>
-						<li><a href="/fifa-world-cup-2026-groups" class="hover:text-blue-300 transition-colors">Groups</a></li>
-						<li><a href="/fifa-world-cup-2026-schedule" class="hover:text-blue-300 transition-colors">Schedule</a></li>
-						<li><a href="/fifa-world-cup-2026-fixtures" class="hover:text-blue-300 transition-colors">Fixtures</a></li>
-						<li><a href="/fifa-world-cup-2026-qualification-conmebol-standings" class="hover:text-blue-300 transition-colors">Standings</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+    <head>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-T28W6JRT');</script>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <title>{title}</title>
+        
+        {schema && (
+            <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        )}
+    </head>
+    <body class="bg-gray-50 text-gray-900 font-sans antialiased flex flex-col min-h-screen">
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T28W6JRT"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <header class="bg-blue-900 text-white shadow-md">
+            <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <a href="/" class="text-2xl font-extrabold tracking-tight hover:text-blue-200 transition-colors whitespace-nowrap">
+                    World cup fifa 2026 
+                </a>
+                
+                <nav class="w-full md:w-auto">
+                    <ul class="flex flex-wrap justify-center md:justify-end gap-3 sm:gap-6 text-sm font-medium">
+                        <li><a href="/fifa-world-cup-2026-tickets" class="hover:text-blue-300 transition-colors">Tickets</a></li>
+                        <li><a href="/fifa-world-cup-2026-groups" class="hover:text-blue-300 transition-colors">Groups</a></li>
+                        <li><a href="/fifa-world-cup-2026-schedule" class="hover:text-blue-300 transition-colors">Schedule</a></li>
+                        <li><a href="/fifa-world-cup-2026-fixtures" class="hover:text-blue-300 transition-colors">Fixtures</a></li>
+                        <li><a href="/fifa-world-cup-2026-qualification-conmebol-standings" class="hover:text-blue-300 transition-colors">Standings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-		<main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
-			<slot />
-		</main>
+        <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full">
+            <slot />
+        </main>
 
-		<footer class="bg-gray-900 text-gray-400 text-center py-6 mt-auto">
-			<p class="text-sm">© 2026 World Cup Hub. The fastest guide on the web.</p>
-		</footer>
+        <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-auto">
+            <p class="text-sm">© 2026 World Cup Hub. The fastest guide on the web.</p>
+        </footer>
 
-	</body>
+    </body>
 </html>
